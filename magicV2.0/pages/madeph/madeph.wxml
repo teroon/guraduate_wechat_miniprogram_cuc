@@ -1,0 +1,32 @@
+<!--madeph.wxml-->
+<!--合成生产头像页-->
+<view class="m_wrap">
+    <!--canvas canvas-id="myCanvas" class='bg' style='height:540rpx;width:540rpx;position:absolute;left:0px;' >
+    <image src="{{bgsrc}}" style='width:540rpx; height:540rpx;'></image>
+    <image src="{{src}}" class="avatar {{bgcss}}"></image>
+    </canvas-->  
+    <view class ="btn">
+        <view class="row_btn" hover-class="hover" id="1" bindtap="upload">
+        <image class="btn_icon" src="/images/selfie.png"> </image>
+        上传/拍摄照片
+        </view>
+        <view class="row_btn" hover-class="hover" id="2" bindtap="generate">
+        <image class="btn_icon" src="/images/process.png"> </image>
+        合成图片
+        </view>
+    </view>
+    <view class="canvas_wrap">
+        <canvas  class="m_canvas" hover-class="hover" canvas-id='ahaucanvas'>
+        </canvas>
+    </view> 
+
+    <view class ="btn">
+    <view class='column_btn' bindtap='saveImage' >
+    <image class="btn_icon" src="/images/cloud.png"> </image>
+    保存图片
+    </view>
+    </view>    
+
+
+ </view>
+ <!--author:马小帅.-->

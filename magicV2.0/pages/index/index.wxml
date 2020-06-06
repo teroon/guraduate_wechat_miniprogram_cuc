@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<!--制作头像首页（类似一个海报）-->
+   <view class="card_wrap">
+      
+      <view class="cards">
+        <view class="card_image"></view>
+        <!--view class="card_image"></view-->
+      </view>
+
+      <!-- 底部的跳转选择头像框button -->
+      <view class ="btn">
+        <view class="index_btn" hover-class="hover" id="1" bindtap="toselectboy">
+        <image class="btn_icon" src="/images/boy.png"> </image>
+        我是男白杨
+        </view>
+        <view class="index_btn" hover-class="hover" id="2" bindtap="toselectgirl">
+        <image class="btn_icon" src="/images/girl.png"> </image>
+        我是女白杨
+        </view>
+      </view>
+
+      <!-- 底部小广告 -->
+      <view class="footer">制作：官微视频部 郭越千</view>
+    </view>
+<!--author:马小帅.-->

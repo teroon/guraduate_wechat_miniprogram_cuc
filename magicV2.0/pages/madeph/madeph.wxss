@@ -1,0 +1,88 @@
+.m_wrap{
+    display: flex;
+    flex-wrap:wrap;
+    position: absolute;
+    width: 100%;
+}
+
+.canvas_wrap{
+    width: 720rpx;
+    height: 960rpx;
+    margin-top: 15rpx;
+    margin-bottom: 15rpx;
+    margin-left: 15rpx;
+    border-radius: 20rpx;
+    display: flex;
+    background: rgb(255, 255, 255);
+    flex-direction: column;
+    box-shadow: 0rpx 10rpx 50rpx 10rpx #5555551A;
+}
+.m_canvas{
+  margin-top:0px;
+  margin-left:0px;
+  width: 750rpx;
+  height: 1000rpx;
+  flex-direction: column;
+}
+.btn{
+    width: 720rpx;
+    margin-top: 15rpx;
+    margin-left: 15rpx;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0rpx 10rpx 30rpx 10rpx #5555551A;
+    background-color: rgb(255, 255, 255);
+  }
+
+.row_btn {
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 360rpx;
+    height: 80rpx;
+    border-radius: 20rpx;
+    color: rgb(77, 77, 77);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .column_btn{
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 720rpx;
+    height: 120rpx;
+    border-radius: 20rpx;
+    box-shadow: 0rpx 10rpx 30rpx 10rpx #5555551A;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    background-color: #B10000;
+  }
+  
+  .hover{
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 360rpx;
+    height: 80rpx;
+    border-radius: 20rpx;
+    color: rgb(77, 77, 77);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    background-color: rgb(206, 206, 206);
+  }
+
+  .btn_icon{
+    margin-right:32rpx;
+    width: 48rpx;
+    height: 48rpx;
+  }

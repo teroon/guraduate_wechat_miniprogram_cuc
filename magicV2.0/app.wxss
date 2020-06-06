@@ -1,0 +1,20 @@
+page {
+  height: 100%;
+  font-family: PingFangSC,Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 100；
+  font-weight：normal;
+  font-stretch: normal;
+  text-align: left;
+  color: #4a4a4a;
+  background-color:  rgb(240, 240, 240); 
+}
+.container {
+  height: 100%;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
