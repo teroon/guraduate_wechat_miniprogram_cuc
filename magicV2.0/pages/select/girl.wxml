@@ -10,7 +10,6 @@
       <image class="photo" src="{{item.coverImgUrl}}"></image>
       <text class="tou-name">{{item.name}}</text>
     </view>
-    <!--这个是我自己的广告，如果可以希望大家可以在微信上点击几下-->
   </view>
 
 <!--author:马小帅.-->

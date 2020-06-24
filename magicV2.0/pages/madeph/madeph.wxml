@@ -21,8 +21,8 @@
     </view> 
 
     <view class ="btn">
-    <view class='column_btn' bindtap='saveImage' >
-    <image class="btn_icon" src="/images/cloud.png"> </image>
+    <view class='column_btn' hover-class="hover_save" bindtap='saveImage' >
+    <image class="btn_icon"  src="/images/cloud.png"> </image>
     保存图片
     </view>
     </view>    

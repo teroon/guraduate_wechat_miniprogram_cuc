@@ -3,7 +3,7 @@
    <view class="card_wrap">
       
       <view class="cards">
-        <view class="card_image"></view>
+        <image class="card_image" src="https://wx3.sinaimg.cn/mw690/0061u2uAgy1gftuvjpeapj30qo0zk7wh.jpg"></image>
         <!--view class="card_image"></view-->
       </view>
 
@@ -13,7 +13,7 @@
         <image class="btn_icon" src="/images/boy.png"> </image>
         我是男白杨
         </view>
-        <view class="index_btn" hover-class="hover" id="2" bindtap="toselectgirl">
+        <view class="index_btn" hover-class="hover" id="2" bindtap="toselectgirl" >
         <image class="btn_icon" src="/images/girl.png"> </image>
         我是女白杨
         </view>

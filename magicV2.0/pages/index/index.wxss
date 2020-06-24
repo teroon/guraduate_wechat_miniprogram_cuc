@@ -14,7 +14,6 @@
   border-radius: 20rpx;
   width: 720rpx;
   height: 1000rpx;
-  background-color: rgb(255, 255, 255);
   box-shadow: 0rpx 10rpx 30rpx 10rpx rgba(46, 46, 46, 0.102);
   flex-direction: row;
 }

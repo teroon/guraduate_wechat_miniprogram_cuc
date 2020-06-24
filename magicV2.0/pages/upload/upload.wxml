@@ -1,13 +1,18 @@
 <!--upload.wxml-->
 <!--用户选择自己的框内头像页-->
+
 <import src="../../cropper/cropper.wxml" />
 <view class="cropper-wrapper">
+
   <template is="cropper" data="{{...cropperOpt}}" />
+    <view class="text">
+      请让您的面部刚好占据整个选框
+    </view>
   <view class="cropper-buttons">
-    <view class="upload" bindtap="uploadTap">
+    <view class="upload" hover-class="hover" bindtap="uploadTap">
       重新选择
     </view>
-    <view class="getCropperImage" bindtap="getCropperImage">
+    <view class="getCropperImage" hover-class="hover" bindtap="getCropperImage">
       确定
     </view>
   </view>

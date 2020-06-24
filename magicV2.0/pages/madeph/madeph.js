@@ -10,13 +10,12 @@ const app = getApp();
  */
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     src: '',
     bgsrc: '',
     bgcss:'',
+    pos_x:0,
+    pos_y:0,
     width:0,
   },
 
@@ -36,28 +35,64 @@ Page({
     })
   },
 
+  doImgSecCheck: function () {
+    var d = Date.now()
+    wx.serviceMarket.invokeService({
+      service: 'wxee446d7507c68b11',
+      api: 'imgSecCheck',
+      data: {
+        "Action": "ImageModeration",
+        "Scenes": ["PORN", "POLITICS", "TERRORISM"],
+        "ImageUrl": this.data.src,
+        "ImageBase64": "",
+        "Config": "",
+        "Extra": ""
+      },
+    }).then(res => {
+      console.log(JSON.stringify(res))
+      wx.showModal({
+        title: 'cost',
+        content: (Date.now() - d) + ' ',
+      })
+    })
+  },
+
   //生成头像，即先画图像再画图像框
   generate() {
     let contex = wx.createCanvasContext('ahaucanvas'); 
+    console.log("pos_x:"+this.data.pos_x+typeof(this.data.pos_x));
+    console.log("pos_y:"+this.data.pos_y+typeof(this.data.pos_y));
+    console.log("width:"+this.data.width+typeof(this.data.width));
     var disp_width = this.data.width*360/375; //这个是画布宽
     var disp_heigth = 4/3*this.data.width*360/375; //这个是高
-    contex.drawImage(this.data.src, 0, 0,100,100);
+    var avatar_x=(app.globalData.pos_x-14)/960*disp_width;
+    var avatar_y=(app.globalData.pos_y+5)/1280*disp_heigth;
+    contex.drawImage(this.data.src,avatar_x , avatar_y,128/960*disp_width,128/960*disp_width);
     contex.restore();
     contex.save();
+
     contex.beginPath(); //开始绘制
-    console.debug(this.data.bgsrc);
-    contex.drawImage(this.data.bgsrc, 0, 0,disp_width ,disp_heigth ); // 这个是我的背
-    contex.restore();
-    contex.draw();
+    wx.getImageInfo({
+      src : this.data.bgsrc,
+     success : res => {
+       //res.path 为getImageInfo预加载的缓存图片地址
+       contex.drawImage( res.path ,0, 0,disp_width ,disp_heigth);
+       contex.restore();
+       contex.draw();
+   }
+  });
+
   },
 
   saveImage(){
+    var disp_width = this.data.width*360/375; //这个是画布宽
+    var disp_heigth = 4/3*this.data.width*360/375; //这个是高
     let that=this;
     wx.canvasToTempFilePath({
       x: 0,
       y: 0,
-      width: 960,
-      height: 1280,
+      width: disp_width,
+      height: disp_heigth,
       destWidth: 960,
       destHeight: 1280,
       canvasId: 'ahaucanvas',
@@ -79,8 +114,8 @@ Page({
       success(result) {
         wx.showToast({
           title: '保存成功，从相册中分享到朋友圈吧',
-          icon: 'none',
-          duration: 4000
+          icon: 'success',
+          duration: 2000
         })
       },
       fail: function (res) {
@@ -93,24 +128,46 @@ Page({
     })
   },
 
-  onLoad(option) {
+  onLoad:function(option) {
+    console.log(option)
+    var that=this;
+
+    //var opx=parseInt(option.x);
+    //var opy=parseInt(option.y);
+    //console.log("opx:"+opx+typeof(opx));
     var bgcss = app.globalData.toubgsrc.substr(14, 2);
-    this.setData({
+    that.setData({
       bgsrc: app.globalData.toubgsrc,
-      bgcss:bgcss
+      bgcss:bgcss,
     });
+
 
     let { avatar } = option;
     if (avatar) {
-      this.setData({
-        src: avatar
+      that.setData({
+        src: avatar,
       });
+      wx.showToast({
+        title: '上传成功，点击"合成图片"得到专属云合照',
+        icon: 'none',
+        duration: 2000
+      })
     }
-
+    if(!avatar){
+      app.globalData.pos_x=Number(option.x);
+      app.globalData.pos_y=Number(option.y);
+    }
     wx.getSystemInfo({
       complete: (res) => {
-        this.setData({width:res.windowWidth})
+        that.setData({
+          width:res.windowWidth,
+        });
       },
     })
+    
+    console.log("src:"+this.data.src+typeof(this.data.src));
+    console.log("pos_x:"+app.globalData.pos_x+typeof(app.globalData.pos_x));
+    console.log("pos_y:"+app.globalData.pos_y+typeof(app.globalData.pos_y));
+    console.log("width:"+this.data.width+typeof(this.data.width));
   }
 })
